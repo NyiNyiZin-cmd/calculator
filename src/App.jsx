@@ -1,5 +1,4 @@
 import { useState } from "react";
-
 import Buttons from "./components/Buttons";
 import Input from "./components/Input";
 import Output from "./components/Output";
@@ -16,14 +15,17 @@ function App() {
         break;
 
       case "AC":
-        input.length == 1
-          ? setInput(0)
-          : setInput(input.slice(0, input.length - 1));
+        input.length == 1 ? setInput(0) : setInput(input.slice(0, input.length - 1));
         break;
 
       case "=":
         try {
-          setOutput(eval(input));
+          // % operator ကို handle လုပ်ခြင်း
+          let expression = input;
+          if (expression.includes('%')) {
+            expression = expression.replace(/%/g, '/100');
+          }
+          setOutput(eval(expression));
           setInput(0);
         } catch (e) {
           setOutput(e.message);
