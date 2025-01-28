@@ -525,15 +525,16 @@
     font-size: var(--text-3xl);
     line-height: var(--tw-leading, var(--text-3xl--line-height));
   }
+  .text-6xl {
+    font-size: var(--text-6xl);
+    line-height: var(--tw-leading, var(--text-6xl--line-height));
+  }
   .font-bold {
     --tw-font-weight: var(--font-weight-bold);
     font-weight: var(--font-weight-bold);
   }
   .text-blue-400 {
     color: var(--color-blue-400);
-  }
-  .text-blue-500 {
-    color: var(--color-blue-500);
   }
   .underline {
     text-decoration-line: underline;
