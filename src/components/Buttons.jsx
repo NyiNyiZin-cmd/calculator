@@ -1,145 +1,31 @@
-const Buttons = ({ handleCalculation }) => {
+function Buttons({ handleCalculation }) {
+  const buttons = [
+    "C", "AC", "%", "/",
+    "7", "8", "9", "*",
+    "4", "5", "6", "-",
+    "1", "2", "3", "+",
+    "00", "0", ".", "="
+  ];
+
   return (
-    <div className="bg-gray-800 w-full grid grid-cols-4">
-      <button
-        onClick={(e) => handleCalculation(e.target.innerText)}
-        className="p-4 text-white transition duration-300 hover:bg-gray-700  "
-      >
-        C
-      </button>
-      <button
-        onClick={(e) => handleCalculation(e.target.innerText)}
-        className="p-4 text-white transition duration-300 hover:bg-gray-700  "
-      >
-        (
-      </button>
-      <button
-        onClick={(e) => handleCalculation(e.target.innerText)}
-        className="p-4 text-white transition duration-300 hover:bg-gray-700  "
-      >
-        )
-      </button>
-      <button
-        onClick={(e) => handleCalculation(e.target.innerText)}
-        className="p-4 text-white transition duration-300 hover:bg-gray-700  "
-      >
-        AC
-      </button>
-
-      <button
-        onClick={(e) => handleCalculation(e.target.innerText)}
-        className="p-4 text-white transition duration-300 hover:bg-gray-700  "
-      >
-        1
-      </button>
-      <button
-        onClick={(e) => handleCalculation(e.target.innerText)}
-        className="p-4 text-white transition duration-300 hover:bg-gray-700  "
-      >
-        2
-      </button>
-      <button
-        onClick={(e) => handleCalculation(e.target.innerText)}
-        className="p-4 text-white transition duration-300 hover:bg-gray-700  "
-      >
-        3
-      </button>
-      <button
-        onClick={(e) => handleCalculation(e.target.innerText)}
-        className="p-4 text-white transition duration-300 hover:bg-gray-700  "
-      >
-        +
-      </button>
-
-      <button
-        onClick={(e) => handleCalculation(e.target.innerText)}
-        className="p-4 text-white transition duration-300 hover:bg-gray-700  "
-      >
-        4
-      </button>
-      <button
-        onClick={(e) => handleCalculation(e.target.innerText)}
-        className="p-4 text-white transition duration-300 hover:bg-gray-700  "
-      >
-        5
-      </button>
-      <button
-        onClick={(e) => handleCalculation(e.target.innerText)}
-        className="p-4 text-white transition duration-300 hover:bg-gray-700  "
-      >
-        6
-      </button>
-      <button
-        onClick={(e) => handleCalculation(e.target.innerText)}
-        className="p-4 text-white transition duration-300 hover:bg-gray-700  "
-      >
-        -
-      </button>
-
-      <button
-        onClick={(e) => handleCalculation(e.target.innerText)}
-        className="p-4 text-white transition duration-300 hover:bg-gray-700  "
-      >
-        7
-      </button>
-      <button
-        onClick={(e) => handleCalculation(e.target.innerText)}
-        className="p-4 text-white transition duration-300 hover:bg-gray-700  "
-      >
-        8
-      </button>
-      <button
-        onClick={(e) => handleCalculation(e.target.innerText)}
-        className="p-4 text-white transition duration-300 hover:bg-gray-700  "
-      >
-        9
-      </button>
-      <button
-        onClick={(e) => handleCalculation(e.target.innerText)}
-        className="p-4 text-white transition duration-300 hover:bg-gray-700  "
-      >
-        *
-      </button>
-
-      <button
-        onClick={(e) => handleCalculation(e.target.innerText)}
-        className="p-4 text-white transition duration-300 hover:bg-gray-700  "
-      >
-        .
-      </button>
-      <button
-        onClick={(e) => handleCalculation(e.target.innerText)}
-        className="p-4 text-white transition duration-300 hover:bg-gray-700  "
-      >
-        0
-      </button>
-      <button
-        onClick={(e) => handleCalculation(e.target.innerText)}
-        className="p-4 text-white transition duration-300 hover:bg-gray-700  "
-      >
-        00
-      </button>
-      <button
-        onClick={(e) => handleCalculation(e.target.innerText)}
-        className="p-4 text-white transition duration-300 hover:bg-gray-700  "
-      >
-        &divide;
-      </button>
-
-      <button
-        onClick={(e) => handleCalculation(e.target.innerText)}
-        className="p-4 text-white transition duration-300 hover:bg-gray-700  "
-      >
-        %
-      </button>
-      <button
-        onClick={(e) => handleCalculation(e.target.innerText)}
-        className="p-4 text-white transition duration-300 hover:bg-gray-700  bg-amber-700 col-span-3"
-      >
-        =
-      </button>
+    <div className="grid grid-cols-4 gap-4">
+      {buttons.map((btn, index) => (
+        <button
+          key={index}
+          onClick={() => handleCalculation(btn)}
+          className={`
+            ${btn === "=" ? "bg-blue-600 hover:bg-blue-700" : "bg-gray-700 hover:bg-gray-600"}
+            ${["C", "AC"].includes(btn) ? "text-red-500" : "text-white"}
+            ${["%", "/", "*", "-", "+"].includes(btn) ? "text-green-400" : ""}
+            aspect-square rounded-2xl text-3xl font-semibold transition-all duration-200
+            active:scale-95 shadow-lg flex items-center justify-center
+          `}
+        >
+          {btn}
+        </button>
+      ))}
     </div>
   );
-};
+}
 
 export default Buttons;

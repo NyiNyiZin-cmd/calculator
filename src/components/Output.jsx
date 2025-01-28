@@ -1,9 +1,9 @@
-const Output = ({ output }) => {
+function Output({ output }) {
   return (
-    <div className="w-full bg-gray-800 py-3 px-4 text-right text-white ">
-      {output}
+    <div className="text-right mb-4">
+      <p className="text-5xl font-bold text-white break-all min-h-[60px]">{output}</p>
     </div>
   );
-};
+}
 
 export default Output;

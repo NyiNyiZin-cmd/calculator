@@ -20,7 +20,6 @@ function App() {
 
       case "=":
         try {
-          // % operator ကို handle လုပ်ခြင်း
           let expression = input;
           if (expression.includes('%')) {
             expression = expression.replace(/%/g, '/100');
@@ -38,15 +37,19 @@ function App() {
   };
 
   return (
-    <>
-      <div className="w-full h-screen bg-gray-700 flex flex-col items-center justify-center">
-        <div className="md:w-1/2 mx-auto">
-          <Output output={output} />
-          <Input input={input} />
+    <div className="fixed inset-0 bg-gradient-to-b from-gray-900 to-gray-800 flex items-center justify-center">
+      <div className="w-full h-full md:h-auto md:w-[500px] lg:w-[600px] flex flex-col">
+        <div className="flex-1 md:min-h-[300px] flex flex-col p-4">
+          <div className="flex-1 flex flex-col justify-end bg-gray-900 rounded-t-3xl p-6">
+            <Output output={output} />
+            <Input input={input} />
+          </div>
+        </div>
+        <div className="bg-gray-800 p-4 md:p-6 rounded-t-3xl shadow-2xl">
           <Buttons handleCalculation={handleCalculation} />
         </div>
       </div>
-    </>
+    </div>
   );
 }
 

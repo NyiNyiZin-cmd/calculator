@@ -1,9 +1,9 @@
-const Input = ({input}) => {
+function Input({ input }) {
   return (
-    <div className="w-full bg-gray-800 py-3 px-4 text-right text-white ">
-      {input}
+    <div className="text-right">
+      <p className="text-4xl font-semibold text-gray-300 break-all min-h-[48px]">{input}</p>
     </div>
   );
-};
+}
 
 export default Input;
